@@ -1,22 +1,7 @@
-let mongoose = require("mongoose");
+var express = require('express');
+var router = express.Router();
 
-//https://mongoosejs.com/docs/schematypes.html
-//Create Collection Schema
-let schemaPgn = new mongoose.Schema({
-  nama: String,
-  email: {
-    type: String,
-    require: true,
-  },
-   password: {
-    type: String,
-    require: true,
-  },
-  alamat: {
-    type: String,
-    require: true,
-  },
-  tanggal_daftar: {
-    type: Date,
-  },
-});
+const PgnController = require('../controllers/pengguna');
+router.get("/", PgnController.index); 
+router.post("/insert", PgnController.insert); 
+module.exports = router;
